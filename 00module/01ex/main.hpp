@@ -5,7 +5,7 @@
 # include <iomanip>
 # include <stdlib.h>
 
-# include "Phonebook.hpp"
 # include "Contact.hpp"
+# include "Phonebook.hpp"
 
 #endif

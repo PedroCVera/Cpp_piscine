@@ -1,4 +1,4 @@
-#ifndef CONTATC_HPP
+#ifndef CONTACT_HPP
 # define CONTACT_HPP
 
 class Contact
