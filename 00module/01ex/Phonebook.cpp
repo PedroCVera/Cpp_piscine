@@ -81,7 +81,7 @@ void	PhoneBook::Search(void)
         {
             std::cout << "";
             std::cout << "|          |          |          |          |" << std::endl;
-            std::cout << "|     " << i + 1 << "    ";
+            std::cout << "|         " << i + 1;
             for (int i2 = 1; i2 < 4; i2++)
             {
                 std::cout << "";
