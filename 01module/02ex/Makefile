@@ -4,11 +4,11 @@ GPPFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= Moar_brainz!
+NAME 		= HI_THIS_IS_BRAIN
 
 INCLUDE 	= -I ./
 
-SRCS 		= main.cpp zombieHorde.cpp Zombie.cpp
+SRCS 		= main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
