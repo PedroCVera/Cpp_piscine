@@ -8,7 +8,7 @@ NAME 		= Unnecessary_violence
 
 INCLUDE 	= -I ./
 
-SRCS 		= main.cpp
+SRCS 		= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

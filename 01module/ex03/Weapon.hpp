@@ -10,6 +10,7 @@ class	Weapon
 
 	public:
 	Weapon(void);
+	explicit Weapon(std::string type);
 	~Weapon(void);
 
 	std::string	const &getType();
