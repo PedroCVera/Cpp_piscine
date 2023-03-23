@@ -2,7 +2,7 @@
 
 Harl::Harl()
 {
-	std::cout << "MA BOY HARL IS BACK!" << std::endl;
+	std::cout << "MA BOY HARL IS HERE!" << std::endl;
 	return ;
 }
 
