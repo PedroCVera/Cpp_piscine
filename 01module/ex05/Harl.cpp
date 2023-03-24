@@ -34,5 +34,17 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	
+	if (level != "Debug" && level != "Info" && level != "Warning" && level != "Error")
+	{
+		std::cout << "Parameter is not an Option, please choose a valid option and try again." << std::endl;
+		return ;
+	}
+	void (Harl::*func[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string options[4] = {"Debug", "Info", "Warning", "Error"};
+	for (int i = 0; i < 4; i++)
+	{
+		if (level == options[i])
+			(this->*func[i])();
+	}
+	return ;
 }

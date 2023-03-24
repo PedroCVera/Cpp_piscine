@@ -4,11 +4,11 @@ GPPFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= replace
+NAME 		= harl
 
 INCLUDE 	= -I ./
 
-SRCS 		= main.cpp
+SRCS 		= main.cpp Harl.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
