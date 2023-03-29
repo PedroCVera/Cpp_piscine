@@ -15,10 +15,10 @@ class Fixed
 
 	Fixed ();
 	Fixed (const Fixed &copy);
-	Fixed &operator=(const Fixed &copy);
 	Fixed (const int numb);
 	Fixed (const float flot);
-	
+
+	Fixed &operator=(const Fixed &copy);
 	
 	int		getRawBits () const;
 	void 	setRawBits (int const raw);
