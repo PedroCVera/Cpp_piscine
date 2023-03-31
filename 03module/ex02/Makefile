@@ -4,11 +4,11 @@ GPPFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= ScavTrap
+NAME 		= FragTrap
 
 INCLUDE 	= -I ./
 
-SRCS 		= ClapTrap.cpp ScavTrap.cpp main.cpp
+SRCS 		= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

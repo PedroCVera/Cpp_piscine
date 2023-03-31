@@ -1,5 +1,6 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
@@ -30,4 +31,18 @@ int main(void)
 	scavTrap1.takeDamage(100);
 
     scavTrap1.guardGate();
+
+    FragTrap fragTrap1("AmazingFragThatTraps");
+
+    fragTrap1.attack("Some random dude");
+    fragTrap1.takeDamage(100);
+    fragTrap1.takeDamage(100);
+    fragTrap1.beRepaired(100);
+    for (int i = 0; i < 10; i++)
+    {
+        std::cout << i << ": ";
+        fragTrap1.beRepaired(100);
+    }
+	fragTrap1.takeDamage(100);
+    fragTrap1.highFivesGuys();
 }
