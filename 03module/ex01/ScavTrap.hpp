@@ -3,18 +3,20 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class	ScavTrap : public ClapTrap
 {
-    public:
-        ScavTrap();
-        ScavTrap(std::string const &name);
-        ScavTrap(ScavTrap const &copy);
-        ScavTrap &operator=(ScavTrap const &other);
-        ~ScavTrap();
+	public:
 
-        void attack(std::string const &target);
-        void guardGate();
+	ScavTrap();
+	ScavTrap(std::string const & name);
+	ScavTrap(ScavTrap const & copy);
+	~ScavTrap();
+
+	ScavTrap &operator=(ScavTrap const & other);
+
+	void	attack(std::string const & target);
+	void	guardGate();
+	
 };
-
 
 #endif
