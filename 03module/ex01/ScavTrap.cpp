@@ -41,7 +41,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap Constructor." << std::endl;
+	std::cout << "ScavTrap Destroyer." << std::endl;
 	return ;
 }
 
