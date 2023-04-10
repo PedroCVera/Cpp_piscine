@@ -24,11 +24,11 @@ Cat &Cat::operator=(Cat const &copy)
 
 Cat::~Cat()
 {
+	delete _brn;
 	std::cout << "Destructor has been called. Cat." << std::endl;
 }
 
 void	Cat::makeSound() const
 {
-	delete _brn;
 	std::cout << "B*tch, stop looking at me!" << std::endl;
 }

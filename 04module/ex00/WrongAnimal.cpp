@@ -2,6 +2,7 @@
 
 WrongAnimal::WrongAnimal()
 {
+	this->type = "Wrong Default Animal";
 	std::cout << "Default constructor for WrongAnimal. WrongAnimal." << std::endl;
 	return ;
 }

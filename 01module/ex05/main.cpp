@@ -5,7 +5,7 @@ int	main(void)
 	Harl	harl;
 	
 	std::cout << "Debug:" << std::endl;
-	harl.complain("DEBUG");
+	harl.complain("Debug");
 	std::cout << "Info:" << std::endl;
 	harl.complain("Info");
 	std::cout << "Warning" << std::endl;

@@ -151,7 +151,6 @@ const Fixed& Fixed::max(const Fixed &o1, const Fixed &o2)
 
 int	Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return this->_fixed;
 }
 

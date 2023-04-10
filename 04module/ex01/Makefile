@@ -1,4 +1,4 @@
-GPP 			= c++
+CPP 			= c++
 
 GPPFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
@@ -15,8 +15,8 @@ OBJS		= $(SRCS:.cpp=.o)
 all:		$(NAME)
 
 $(NAME): 	$(OBJS)
-			$(GPP) $(GPPFLAGS) $(SRCS) $(INCLUDE) -c
-			$(GPP) $(GPPFLAGS) $(OBJS) -o $(NAME) $(INCLUDE)
+			$(CPP) $(GPPFLAGS) $(SRCS) $(INCLUDE) -c
+			$(CPP) $(GPPFLAGS) $(OBJS) -o $(NAME) $(INCLUDE)
 
 clean:
 			$(RM) -r $(OBJS)

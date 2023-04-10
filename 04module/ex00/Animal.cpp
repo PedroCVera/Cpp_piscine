@@ -2,6 +2,7 @@
 
 Animal::Animal()
 {
+	this->type = "Default Animal";
 	std::cout << "Default constructor for Animal. Animal." << std::endl;
 	return ;
 }

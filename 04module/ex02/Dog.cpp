@@ -24,11 +24,11 @@ Dog &Dog::operator=(Dog const &copy)
 
 Dog::~Dog()
 {
+	delete _brn;
 	std::cout << "Destructor has been called. Dog." << std::endl;
 }
 
 void	Dog::makeSound() const
 {
-	delete _brn;
 	std::cout << "AU AU AU AU AU AU AU AU" << std::endl;
 }

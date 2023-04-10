@@ -9,7 +9,7 @@ class Fixed
 {
 	private:
 	int					_fixed;
-	static const int	_bits;
+	static const int	_bits = 8;
 
 	public:
 

@@ -4,7 +4,7 @@ GPPFLAGS 		= -Wall -Wextra -Werror -std=c++98
 
 RM 			= rm -f
 
-NAME 		= Moar_brainz!
+NAME 		= Moar_brainz
 
 INCLUDE 	= -I ./
 

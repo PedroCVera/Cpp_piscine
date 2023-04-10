@@ -17,24 +17,24 @@ Dog::Dog(const Dog &copy) : Animal(copy)
 
 Dog &Dog::operator=(Dog const &other)
 {
-    std::cout << "Dog assignation operator called" << std::endl;
-    if (this != &other)
-    {
-        _type = other._type;
-        // if (this->_brn)
-        //     delete _brn;
-        this->_brn = new Brain(*other._brn);
-    }
-    return *this;
+	std::cout << "Dog assignation operator called" << std::endl;
+	if (this != &other)
+	{
+		_type = other._type;
+		if (!_brn)
+			delete _brn;
+		this->_brn = new Brain(*other._brn);
+	}
+	return *this;
 }
 
 Dog::~Dog()
 {
+	delete _brn;
 	std::cout << "Destructor has been called. Dog." << std::endl;
 }
 
 void	Dog::makeSound() const
 {
-	delete _brn;
 	std::cout << "AU AU AU AU AU AU AU AU" << std::endl;
 }

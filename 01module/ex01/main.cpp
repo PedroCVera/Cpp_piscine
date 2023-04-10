@@ -10,6 +10,6 @@ int	main(void)
 
 	Braineater = zombieHorde(n, "Bob");
 	while (i++ < n - 1)
-		Braineater[i].announce();\
+		Braineater[i].announce();
 	delete [] Braineater;
 }
