@@ -12,6 +12,9 @@ SRCS 		= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
+%.o: %.cpp
+		$(GPP) $(GPPFLAGS) -c $< -o $@
+
 all:		$(NAME)
 
 $(NAME): 	$(OBJS)
