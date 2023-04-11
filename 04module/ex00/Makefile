@@ -12,6 +12,9 @@ SRCS 		= Dog.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
+%.o: %.cpp
+		$(GPP) $(GPPFLAGS) -c $< -o $@
+
 all:		$(NAME)
 
 $(NAME): 	$(OBJS)
