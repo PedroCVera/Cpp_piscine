@@ -12,6 +12,9 @@ SRCS 		= main.cpp Fixed.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
+%.o: %.cpp
+		$(GPP) $(GPPFLAGS) -c $< -o $@
+
 all:		$(NAME)
 
 $(NAME): 	$(OBJS)
