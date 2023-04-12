@@ -68,17 +68,11 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	unsigned int	ind = 0;
-
 	if (_ep > 0)
 	{
-		while (_ep > 0 && ind < amount)
-		{
-			_ep -= 1;
-			ind += 1;
-			_hp += 1;
-		}
-		std::cout << _name << " has been healed for:" << ind << \
+		_ep -= 1;
+		_hp += amount;
+		std::cout << _name << " has been healed for:" << amount << \
 		" amount of points and now has:" << _hp << std::endl;
 	}
 	else
