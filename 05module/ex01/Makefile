@@ -4,11 +4,11 @@ CXXFLAGS 		= -Wall -Wextra -Werror -std=c++98 #-g #-fsanitize=address
 
 RM 			= rm -f
 
-NAME 		= Bureaucrat
+NAME 		= Forms
 
 INCLUDE 	= -I ./
 
-SRCS 		= Bureaucrat.cpp main.cpp
+SRCS 		= Bureaucrat.cpp main.cpp Form.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
