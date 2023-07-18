@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:02:32 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/07/14 16:31:51 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:54:13 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ Form::~Form(void)
 
 Form &Form::operator=(Form const &other)
 {
-	_grade = other.getGrade();
+	_sign_grade = other.getSignGrade();
+	_exec_grade = other.getExecGrade();
 	return (*this);
 }
 
@@ -49,4 +50,58 @@ Form::Form(const std::string name, int sign_grade, int exec_grade) : _fname(name
 	_exec_grade = exec_grade;
 	std::cout << "Constructor with input " << _fname << "." << std::endl;
 	return ;
+}
+
+//Exception Functions
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return "Grade Too High!";
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return "Grade Too Low!";
+}
+
+//Get stuff
+
+std::string Form::getName() const
+{
+	return (this->_fname);
+}
+
+int	Form::getSignGrade() const
+{
+	return (this->_sign_grade);
+}
+
+int	Form::getExecGrade() const
+{
+	return (this->_exec_grade);
+}
+
+bool	Form::getSign() const
+{
+	return (this->_sign);
+}
+
+//Sign
+
+void	Form::beSigned(Bureaucrat const &Bur)
+{
+	if (Bur.getGrade() <= this->getSignGrade())
+		_sign = true;
+	else
+		throw Form::GradeTooLowException();
+}
+
+//operator overload
+
+std::ostream &operator<<(std::ostream &out, const Form &f)
+{
+	out << "Name: " << f.getName() << std::endl << "Status: " << f.getSign() << std::endl <<
+	"Required grade for signing: " << f.getSignGrade() << std::endl <<
+	"Required grade for executing: " << f.getExecGrade();
+	return out;
 }

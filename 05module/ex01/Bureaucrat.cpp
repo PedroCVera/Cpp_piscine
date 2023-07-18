@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:28:56 by pedrovera         #+#    #+#             */
-/*   Updated: 2023/07/11 14:02:11 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:54:41 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	_grade = grade;
-	std::cout << "Constructor with input." << std::endl;
+	std::cout << "Constructor with input " << _name << "." << std::endl;
 }
 
 //increment / decrement
@@ -93,4 +93,20 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
 	out << bureaucrat.getName() << "'s grade is: " << bureaucrat.getGrade() << "." << std::endl;
 	return out;
+}
+
+//Form Sign
+
+void	Bureaucrat::signForm(Form &form) const
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+	catch(Form::GradeTooLowException &e)
+	{
+		std::cout << this->_name << " couldn't sign " << form.getName() 
+		<< " because of " << e.what() << std::endl;
+	}
 }

@@ -6,16 +6,19 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:02:48 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/07/14 16:22:36 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:48:35 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
+# include "Bureaucrat.hpp"
 # include <iostream>
 # include <string>
 # include <exception>
+
+class Bureaucrat;
 
 class Form
 {
@@ -53,6 +56,6 @@ class Form
 
 };
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);
+std::ostream &operator<<(std::ostream &out, const Form &f);
 
 #endif
