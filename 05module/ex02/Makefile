@@ -31,4 +31,4 @@ fclean: clean
 	@rm -rf $(NAME)
 	@printf "\033[38;5;1m[Cleaned Bin!]\033[0m\n"
 
-re: fclean all
+re: fclean alls
