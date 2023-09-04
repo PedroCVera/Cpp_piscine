@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 15:28:56 by pedrovera         #+#    #+#             */
-/*   Updated: 2023/09/04 12:07:32 by pcoimbra         ###   ########.fr       */
+/*   Created: 2023/09/04 16:41:45 by pcoimbra          #+#    #+#             */
+/*   Updated: 2023/09/04 16:44:57 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -97,16 +97,30 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 
 //Form Sign
 
-void	Bureaucrat::signForm(Form &form) const
+void	Bureaucrat::signForm(AForm &form) const
 {
 	try
 	{
 		form.beSigned(*this);
 		std::cout << this->_name << " GradeTooLowExceptionsigned " << form.getName() << std::endl;
 	}
-	catch(Form::GradeTooLowException &e)
+	catch(AForm::GradeTooLowException &e)
 	{
 		std::cout << this->_name << " couldn't sign " << form.getName() 
 		<< " because of " << e.what() << std::endl;
 	}
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " GradeTooLowExceptionsigned " << form.getName() << std::endl;
+	}
+	catch(AForm::GradeTooLowException &e)
+	{
+		std::cout << this->_name << " couldn't sign " << form.getName() 
+		<< " because of " << e.what() << std::endl;
+	}	
 }

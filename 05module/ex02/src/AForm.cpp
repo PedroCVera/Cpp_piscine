@@ -1,51 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AAForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 14:02:32 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/04 15:35:49 by pcoimbra         ###   ########.fr       */
+/*   Created: 2023/09/04 16:45:22 by pcoimbra          #+#    #+#             */
+/*   Updated: 2023/09/04 16:46:09 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+# include "../inc/AForm.hpp"
 
-
-Form::Form()
+AForm::AForm()
 {
-	std::cout << "Default Form has been created!" << std::endl;
+	std::cout << "Default AForm has been created!" << std::endl;
 	_exec_grade = 1;
 	_sign = false;
 	_sign_grade = 1;
 }
 
-Form::Form(Form const & copy) : _fname(copy._fname) , _sign_grade(copy._sign_grade) , _exec_grade(copy._exec_grade) , _sign(copy._sign)
+AForm::AForm(AForm const & copy) : _fname(copy._fname) , _sign_grade(copy._sign_grade) , _exec_grade(copy._exec_grade) , _sign(copy._sign)
 {
-	std::cout << "form has been copied!" << _fname << std::endl;
+	std::cout << "AForm has been copied!" << _fname << std::endl;
 	return ;
 }
 
-Form::~Form(void)
+AForm::~AForm(void)
 {
-	std::cout << "Form " << _fname << " has been destroyed." << std::endl;
+	std::cout << "AForm " << _fname << " has been destroyed." << std::endl;
 	return ;
 }
 
-Form &Form::operator=(Form const &other)
+AForm &AForm::operator=(AForm const &other)
 {
 	_sign_grade = other.getSignGrade();
 	_exec_grade = other.getExecGrade();
 	return (*this);
 }
 
-Form::Form(const std::string name, int sign_grade, int exec_grade) : _fname(name)
+AForm::AForm(const std::string name, int sign_grade, int exec_grade) : _fname(name)
 {
 	if (sign_grade < 1 || exec_grade < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	if (sign_grade > 150 || exec_grade > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	_sign_grade = sign_grade;
 	_exec_grade = exec_grade;
 	_sign = false;
@@ -55,51 +54,51 @@ Form::Form(const std::string name, int sign_grade, int exec_grade) : _fname(name
 
 //Exception Functions
 
-const char *Form::GradeTooHighException::what() const throw()
+const char *AForm::GradeTooHighException::what() const throw()
 {
 	return "Grade Too High!";
 }
 
-const char *Form::GradeTooLowException::what() const throw()
+const char *AForm::GradeTooLowException::what() const throw()
 {
 	return "Grade Too Low!";
 }
 
 //Get stuff
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
 	return (this->_fname);
 }
 
-int	Form::getSignGrade() const
+int	AForm::getSignGrade() const
 {
 	return (this->_sign_grade);
 }
 
-int	Form::getExecGrade() const
+int	AForm::getExecGrade() const
 {
 	return (this->_exec_grade);
 }
 
-bool	Form::getSign() const
+bool	AForm::getSign() const
 {
 	return (this->_sign);
 }
 
 //Sign
 
-void	Form::beSigned(Bureaucrat const &Bur)
+void	AForm::beSigned(Bureaucrat const &Bur)
 {
 	if (Bur.getGrade() <= this->getSignGrade())
 		_sign = true;
 	else
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 }
 
 //operator overload
 
-std::ostream &operator<<(std::ostream &out, const Form &f)
+std::ostream &operator<<(std::ostream &out, const AForm &f)
 {
 	out << "Name: " << f.getName() << std::endl << "Status: " << f.getSign() << std::endl <<
 	"Required grade for signing: " << f.getSignGrade() << std::endl <<
