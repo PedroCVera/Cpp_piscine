@@ -46,28 +46,28 @@ public:
     class GradeTooHighException : std::exception 
     {
         public:
-            const char *what(void) const throw();
+            virtual const char *what(void) const throw();
     };
     class GradeTooLowException : std::exception
     {
         public:
-            const char *what(void) const throw();
+            virtual const char *what(void) const throw();
     };
     class NotSignedException : public std::exception
 	{
 		public:
-			const char* what() const throw();
+			virtual const char* what() const throw();
 	};
 	class AlreadySignedException : public std::exception
 	{
 		public:
-			const char* what() const throw();
+			virtual const char* what() const throw();
 	};
-	class TooLowToExecuteException : public std::exception
-	{
-		public:
-			const char* what() const throw();
-	};
+	// class TooLowToExecuteException : public std::exception
+	// {
+	// 	public:
+	// 		virtual const char* what() const throw();
+	// };
 };
 
 std::ostream &operator<<(std::ostream &out, const AForm &f);

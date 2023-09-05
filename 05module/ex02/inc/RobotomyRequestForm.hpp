@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 14:57:24 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/04 16:39:39 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/09/05 14:34:47 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <fstream> 
 # include "AForm.hpp"
+
+class AForm;
 
 class RobotomyRequestForm : public AForm
 {

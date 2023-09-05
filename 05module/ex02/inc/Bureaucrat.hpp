@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 12:01:33 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/04 16:40:52 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:03:58 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,28 @@ class Bureaucrat
 		class	GradeTooHighException : std::exception
 		{
 			public:
-				const char *what() const throw();
+				virtual const char *what() const throw();
 		};
 		class	GradeTooLowException : std::exception
 		{
 			public:
-				const char *what() const throw();
+				virtual const char *what() const throw();
 		};
+		class NotSignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		class AlreadySignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		// class TooLowToExecuteException : public std::exception
+		// {
+		// 	public:
+		// 		virtual const char* what() const throw();
+		// };
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);

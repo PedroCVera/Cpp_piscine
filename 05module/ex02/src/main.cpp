@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:46:45 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/04 17:06:01 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:05:09 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int main(void)
 	{
 		try{
 			std::cout << "\e[1;35m===========Constructing===========\033[0m" << std::endl;
-			Bureaucrat exec("execer", 145);
-			Bureaucrat signer("signer", 145);
+			Bureaucrat exec("Bexec", 145);
+			Bureaucrat signer("Bsigner", 145);
 			ShrubberyCreationForm A("ze manel");
 			std::cout << "\e[1;35m===========Testing===========\033[0m" << std::endl;
 			std::cout << A;
@@ -33,7 +33,30 @@ int main(void)
 			A.execute(exec);
 			std::cout << "\e[1;35m===========Destructing===========\033[0m" << std::endl;
 		}
-		catch (std::exception &error){std::cout << error.what() << std::endl;}
+		catch (AForm::GradeTooLowException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (AForm::GradeTooHighException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::GradeTooLowException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::GradeTooHighException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (AForm::AlreadySignedException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (AForm::NotSignedException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::AlreadySignedException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::NotSignedException &e) {
+			std::cout << e.what() << std::endl;
+		}
 
 	}
 	{
@@ -49,7 +72,30 @@ int main(void)
 			A.execute(exec);
 			std::cout << "\e[1;35m===========Destructing===========\033[0m" << std::endl;
 		}
-		catch (std::exception &error){std::cout << error.what() << std::endl;}
+		catch (AForm::GradeTooLowException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (AForm::GradeTooHighException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::GradeTooLowException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::GradeTooHighException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (AForm::AlreadySignedException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (AForm::NotSignedException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::AlreadySignedException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::NotSignedException &e) {
+			std::cout << e.what() << std::endl;
+		}
 		
 	}
 	{
@@ -68,7 +114,30 @@ int main(void)
 			//A.execute(exec);
 			std::cout << "\e[1;35m===========Destructing===========\033[0m" << std::endl;
 		}
-		catch (std::exception &error){std::cout << error.what() << std::endl;}	
+		catch (AForm::GradeTooLowException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (AForm::GradeTooHighException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::GradeTooLowException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::GradeTooHighException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (AForm::AlreadySignedException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (AForm::NotSignedException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::AlreadySignedException &e) {
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::NotSignedException &e) {
+			std::cout << e.what() << std::endl;
+		}	
 	}
 
 }

@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:41:45 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/04 16:44:57 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:04:07 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	Bureaucrat::decrementGrade()
 	if (this->_grade == 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
-	std::cout << "Increment function." << std::endl;
+	std::cout << "decrement function." << std::endl;
 }
 
 //Error handlers from try
@@ -76,6 +76,21 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Grade Too Low!";
 }
+
+const char *Bureaucrat::NotSignedException::what() const throw()
+{
+	return "Form is not signed yet.";
+}
+
+const char *Bureaucrat::AlreadySignedException::what() const throw()
+{
+	return "Form is already signed.";
+}
+
+// const char *Bureaucrat::TooLowToExecuteException::what() const throw()
+// {
+// 	return "Burecraut's grade is too low to execute this form.";
+// }
 
 //Getters
 
@@ -104,7 +119,7 @@ void	Bureaucrat::signForm(AForm &form) const
 		form.beSigned(*this);
 		std::cout << this->_name << " GradeTooLowExceptionsigned " << form.getName() << std::endl;
 	}
-	catch(AForm::GradeTooLowException &e)
+	catch(Bureaucrat::GradeTooLowException &e)
 	{
 		std::cout << this->_name << " couldn't sign " << form.getName() 
 		<< " because of " << e.what() << std::endl;
@@ -118,7 +133,7 @@ void	Bureaucrat::executeForm(AForm const & form)
 		form.execute(*this);
 		std::cout << this->_name << " GradeTooLowExceptionsigned " << form.getName() << std::endl;
 	}
-	catch(AForm::GradeTooLowException &e)
+	catch(Bureaucrat::GradeTooLowException &e)
 	{
 		std::cout << this->_name << " couldn't sign " << form.getName() 
 		<< " because of " << e.what() << std::endl;

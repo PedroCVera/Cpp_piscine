@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 15:07:50 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/04 17:32:19 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:52:03 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if (!getSign())
+	if (!this->getSign())
 		throw AForm::NotSignedException();
-	if (executor.getGrade() > getExecGrade())
+	if (executor.getGrade() > this->getExecGrade())
 		throw AForm::GradeTooLowException();
-	std::ofstream Myfile(_target);
-	Myfile << "       	   _-_               _-_\n    /~~   ~~\         /~~   ~~\\n /~~         ~~\   /~~         ~~\\n{               } {               }\n \  _-     -_  /   \  _-     -_  /\n   ~  \\ //  ~       ~  \\ //  ~\n_- -   | | _- _   _- -   | | _- _\n  _ -  | |   -_     _ -  | |   -_\n      // \\	            // \\ \n";
+	std::ofstream Myfile;
+	std::string targetS = _target + "_shrubbery";
+	Myfile.open((targetS).c_str());
+	Myfile << "       	   _-_               _-_\n    /~~   ~~\\         /~~   ~~\\n /~~         ~~\\   /~~         ~~\\n{               } {               }\n \\  _-     -_  /   \\  _-     -_  /\n   ~  \\ //  ~       ~  \\ //  ~\n_- -   | | _- _   _- -   | | _- _\n  _ -  | |   -_     _ -  | |   -_\n      // \\	            // \\ \n";
 	Myfile.close();
 }

@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 14:57:25 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/04 16:39:40 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/09/05 14:34:52 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <fstream> 
 # include "AForm.hpp"
+
+class AForm;
 
 class ShrubberyCreationForm : public AForm
 {

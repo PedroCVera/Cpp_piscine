@@ -64,6 +64,21 @@ const char *AForm::GradeTooLowException::what() const throw()
 	return "Grade Too Low!";
 }
 
+const char *AForm::NotSignedException::what() const throw()
+{
+	return "Form is not signed yet.";
+}
+
+const char *AForm::AlreadySignedException::what() const throw()
+{
+	return "Form is already signed.";
+}
+
+// const char *AForm::TooLowToExecuteException::what() const throw()
+// {
+// 	return "Burecraut's grade is too low to execute this form.";
+// }
+
 //Get stuff
 
 std::string AForm::getName() const
@@ -90,7 +105,7 @@ bool	AForm::getSign() const
 
 void	AForm::beSigned(Bureaucrat const &Bur)
 {
-	if (Bur.getGrade() <= this->getSignGrade())
+	if (Bur.getGrade() >= this->getSignGrade())
 		_sign = true;
 	else
 		throw AForm::GradeTooLowException();
@@ -102,6 +117,6 @@ std::ostream &operator<<(std::ostream &out, const AForm &f)
 {
 	out << "Name: " << f.getName() << std::endl << "Status: " << f.getSign() << std::endl <<
 	"Required grade for signing: " << f.getSignGrade() << std::endl <<
-	"Required grade for executing: " << f.getExecGrade();
+	"Required grade for executing: " << f.getExecGrade() << std::endl;
 	return out;
 }

@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:02:32 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/04 15:35:49 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:50:39 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ bool	Form::getSign() const
 
 void	Form::beSigned(Bureaucrat const &Bur)
 {
-	if (Bur.getGrade() <= this->getSignGrade())
+	if (Bur.getGrade() >= this->getSignGrade())
 		_sign = true;
 	else
 		throw Form::GradeTooLowException();

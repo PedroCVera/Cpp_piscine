@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:31:25 by pedrovera         #+#    #+#             */
-/*   Updated: 2023/07/18 15:48:48 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/09/05 14:54:04 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ class Bureaucrat
 		class	GradeTooHighException : std::exception
 		{
 			public:
-				const char *what() const throw();
+				virtual const char *what() const throw();
 		};
 		class	GradeTooLowException : std::exception
 		{
 			public:
-				const char *what() const throw();
+				virtual const char *what() const throw();
 		};
 };
 
