@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 14:54:14 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/06 15:13:50 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/09/11 16:21:50 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,17 @@ int main()
 	try
 	{
 		Intern someRandomIntern;
-		scf = someRandomIntern.makeForm("Shrubbery request", "home");
+		scf = someRandomIntern.makeForm(" request", "home");
 
 		Bureaucrat b1("jardineiro", 137);
 		b1.signForm(*scf);
 		b1.executeForm(*scf);
 		delete scf;
 	}
+	// catch (std::exception &e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
 	catch (Intern::FormDoesntExist &e)
 	{
 		std::cout << "Failed because: " << e.what() << std::endl;
@@ -65,6 +69,10 @@ int main()
 		b1.executeForm(*rrf);
 		delete rrf;
 	}
+	// catch (std::exception &e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
 	catch (Intern::FormDoesntExist  &e)
 	{
 		std::cout << "Failed because: " << e.what() << std::endl;
@@ -94,6 +102,10 @@ int main()
 		b1.executeForm(*ppf);
 		delete ppf;
 	}
+	// catch (std::exception &e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
 	catch (Intern::FormDoesntExist  &e)
 	{
 		std::cout << "Failed because: " << e.what() << std::endl;
@@ -123,6 +135,10 @@ int main()
 		b1.executeForm(*wrong);
 		delete wrong;
 	}
+	// catch (std::exception &e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
 	catch (Intern::FormDoesntExist  &e)
 	{
 		std::cout << "Failed because: " << e.what() << std::endl;
