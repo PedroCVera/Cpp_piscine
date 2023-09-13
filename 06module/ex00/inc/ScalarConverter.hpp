@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:54:21 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/11 16:03:07 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:01:01 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,15 @@
 # include <sstream>
 # include <stdio.h>
 # include <cstring>
+# include <limits>
 
 class ScalarConverter
 {
 	private:
-			static	int		_try_int(std::string *str);
-			static	int		_try_double(std::string *str);
-			static	int		_try_float(std::string *str);
-			static	int		_try_char(std::string *str);
-			static	int		_try_pseudo(std::string *str);
-			static	char	_char;
-			static	int		_int;
-			static	float	_float;
-			static	double	_double;
+			static	int		_try_int(std::string str);
+			static	int		_try_double(std::string str);
+			static	int		_try_float(std::string str);
+			static	int		_try_char(std::string str);
 	
 	public:
 			ScalarConverter();
@@ -38,16 +34,15 @@ class ScalarConverter
 			ScalarConverter &operator=(ScalarConverter const& other);
 			~ScalarConverter();
 
-			static	void	convert(std::string *str);
-			static	int		lib_id(std::string *str);
-
-
+			static	void	convert(std::string str);
+			static	int		lib_id(std::string str);
 			
-			class InvalidInputException : std::exception
-			{
-				public:
-					const char *what() const throw();
-			};
+			static	void	norm_print(char type);
+			static	void	norm_print(int type);
+			static	void	norm_print(double type);
+			static	void	norm_print(float type);
+			static	void	norm_print(std::string type, std::string tp);
+			static	void	impo_print(void);
 			
 };
 
