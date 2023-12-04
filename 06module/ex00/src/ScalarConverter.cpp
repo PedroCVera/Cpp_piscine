@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:19:43 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/13 17:25:40 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:11:55 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ScalarConverter::lib_id(std::string str)
 
 int	ScalarConverter::_try_char(std::string str)
 {
-	if (strlen(str.c_str()) == 1 && !(str[0] >= '0' && str[0] <= '9'))
+	if (std::strlen(str.c_str()) == 1 && !(str[0] >= '0' && str[0] <= '9'))
 			return (1);
 	return (0);
 }
@@ -119,8 +119,19 @@ int	ScalarConverter::_try_float(std::string str)
 		return (0);
 	else if (ff == 1 && str.size() == 2)
 		return (0);
-	else
-		return (1);
+	try
+	{
+		std::stof(str);
+		return 1;
+	}
+	catch (std::invalid_argument const& ex)
+	{
+	    return 0;
+	}
+	catch(std::out_of_range const& ex)
+	{
+		return 0;
+	}
 	return (0);
 }
 
@@ -142,16 +153,24 @@ int	ScalarConverter::_try_double(std::string str)
 	}
 	if (dot > 1 || signals > 1)
 		return (0);
-	else if (dot == 0)
-		return (0);
-	else
-		return (1);
+	try
+	{
+		std::stod(str);
+		return 1;
+	}
+	catch (std::invalid_argument const& ex)
+	{
+	    return 0;
+	}
+	catch(std::out_of_range const& ex)
+	{
+		return 0;
+	}
 	return (0);
 }
 
 int	ScalarConverter::_try_int(std::string str)
 {
-	{
 	int	i = 0;
 	int	signals = 0;
 	
@@ -165,10 +184,20 @@ int	ScalarConverter::_try_int(std::string str)
 	}
 	if (signals > 1)
 		return (0);
-	else
-		return (1);
+	try
+	{
+		std::stoi(str);
+		return 1;
+	}
+	catch (std::invalid_argument const& ex)
+	{
+	    return 0;
+	}
+	catch(std::out_of_range const& ex)
+	{
+		return 0;
+	}
 	return (0);
-}
 }
 
 void	ScalarConverter::norm_print(char c)
@@ -212,8 +241,8 @@ void	ScalarConverter::norm_print(double type)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(type) << std::endl;
-	if (type > std::numeric_limits<float>::max() || type < std::numeric_limits<float>::min())
-		std::cout << "float: impossible" << std::endl;
+	if (type > std::numeric_limits<float>::max() || type < -std::numeric_limits<float>::max())
+		std::cout << "float: impossible " << std::endl;
 	else
 		std::cout << "float: " << static_cast<float>(type) << "f" << std::endl;
 	std::cout << "double: " << type << std::endl;
