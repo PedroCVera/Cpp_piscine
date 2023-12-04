@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:37:03 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/14 18:10:25 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:38:57 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ Base::~Base()
 Base*	Base::generate(void)
 {
 	Base *base;
-	srand(time(0));
-	int	i = (rand() % 3);
+	srand(time(NULL));
+	int	i = rand() % 3;
 
 	switch (i)
 	{
