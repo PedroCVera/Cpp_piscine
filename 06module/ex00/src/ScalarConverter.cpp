@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:19:43 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/12/04 13:11:55 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:22:12 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -244,8 +244,16 @@ void	ScalarConverter::norm_print(double type)
 	if (type > std::numeric_limits<float>::max() || type < -std::numeric_limits<float>::max())
 		std::cout << "float: impossible " << std::endl;
 	else
-		std::cout << "float: " << static_cast<float>(type) << "f" << std::endl;
-	std::cout << "double: " << type << std::endl;
+	{
+		if (static_cast<double>(type) == static_cast<int>(type))
+			std::cout << "float: " << static_cast<float>(type) << ".0f" << std::endl;
+		else
+			std::cout << "float: " << static_cast<float>(type) << "f" << std::endl;
+	}
+	if (static_cast<double>(type) == static_cast<int>(type))
+		std::cout << "double: " << type << ".0" << std::endl;
+	else
+		std::cout << "double: " << type << std::endl;
 }
 
 void	ScalarConverter::norm_print(float type)
@@ -259,8 +267,16 @@ void	ScalarConverter::norm_print(float type)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(type) << std::endl;
-	std::cout << "float: " << type << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(type) << std::endl;
+	if (static_cast<double>(type) == static_cast<int>(type))
+	{
+		std::cout << "float: " << type << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(type) << ".0" << std::endl;
+	}
+	else
+	{
+		std::cout << "float: " << type << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(type) << std::endl;
+	}
 }
 
 void	ScalarConverter::impo_print(void)
