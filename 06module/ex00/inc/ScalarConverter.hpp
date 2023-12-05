@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:54:21 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/13 17:01:01 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:48:21 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdio.h>
 # include <cstring>
 # include <limits>
+# include <cmath>
+# include <stdlib.h>
 
 class ScalarConverter
 {
@@ -27,12 +29,12 @@ class ScalarConverter
 			static	int		_try_double(std::string str);
 			static	int		_try_float(std::string str);
 			static	int		_try_char(std::string str);
-	
-	public:
 			ScalarConverter();
 			ScalarConverter(ScalarConverter const & cpy);
 			ScalarConverter &operator=(ScalarConverter const& other);
 			~ScalarConverter();
+	
+	public:
 
 			static	void	convert(std::string str);
 			static	int		lib_id(std::string str);

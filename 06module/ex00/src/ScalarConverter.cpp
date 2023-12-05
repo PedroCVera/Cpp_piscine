@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:19:43 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/12/04 13:22:12 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:57:47 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,32 @@ void	ScalarConverter::convert(std::string str)
 	switch (type)
 	{
 		case 1:
+		{
+			std::istringstream	numberStream(str);
+			float				valueFloat;
+			numberStream >> valueFloat; 
 			std::cout << "Type: float" << std::endl;
-			norm_print(std::stof(str));
-			break ;
+			norm_print(valueFloat);
+			return ;
+		}
 		case 2:
+		{
+			std::istringstream numberStream(str);
+			double	valueDouble;
+			numberStream >> valueDouble; 
 			std::cout << "Type: double" << std::endl;
-			norm_print(std::stod(str));
-			break ;
+			norm_print(valueDouble);
+			return ;
+		}
 		case 3:
+		{
+			std::istringstream numberIntStream(str);
+			int	valueInt;
+			numberIntStream >> valueInt;
 			std::cout << "Type: int" << std::endl;
-			norm_print(std::stoi(str));
-			break ;
+			norm_print(valueInt);
+			return ;
+		}
 		case 4:
 			std::cout << "Type: char" << std::endl;
 			norm_print(str[0]);
@@ -94,20 +109,20 @@ int	ScalarConverter::_try_char(std::string str)
 
 int	ScalarConverter::_try_float(std::string str)
 {
-	int	i = 0;
+	int	i = 1;
 	int	dot = 0;
 	int	signals = 0;
 	int	ff = 0;
 	
+	if (str[0] == '+' || str[0] == '-')
+		signals++;
+	if (str[str.size() - 1] == 'f')
+		ff++;
 	while (str[i])
 	{
-		if (str[i] == '+' || str[i] == '-')
-			signals++;
-		else if (str[i] == '.')
+		if (str[i] == '.')
 			dot++;
-		else if (str[i] == 'f')
-			ff++;
-		else if (str[i] < '0' || str[i] > '9')
+		else if ((str[i] < '0' || str[i] > '9') && str[str.size() - 1] != str[i])
 			return (0);
 		i++;
 	}
@@ -119,33 +134,27 @@ int	ScalarConverter::_try_float(std::string str)
 		return (0);
 	else if (ff == 1 && str.size() == 2)
 		return (0);
-	try
-	{
-		std::stof(str);
-		return 1;
-	}
-	catch (std::invalid_argument const& ex)
-	{
-	    return 0;
-	}
-	catch(std::out_of_range const& ex)
-	{
+	double	testing = strtod(str.c_str(), NULL);
+	if (testing == HUGE_VAL || testing == -HUGE_VAL)
 		return 0;
-	}
+	if (testing > std::numeric_limits<float>::max() || testing < -std::numeric_limits<float>::max())
+		return 0;
+	else
+		return 1;
 	return (0);
 }
 
 int	ScalarConverter::_try_double(std::string str)
 {
-	int	i = 0;
+	int	i = 1;
 	int	dot = 0;
 	int	signals = 0;
 	
+	if (str[0] == '+' || str[0] == '-')
+		signals++;
 	while (str[i])
 	{
-		if (str[i] == '+' || str[i] == '-')
-			signals++;
-		else if (str[i] == '.')
+		if (str[i] == '.')
 			dot++;
 		else if (!std::isdigit(str[i]))
 			return (0);
@@ -153,50 +162,41 @@ int	ScalarConverter::_try_double(std::string str)
 	}
 	if (dot > 1 || signals > 1)
 		return (0);
-	try
-	{
-		std::stod(str);
-		return 1;
-	}
-	catch (std::invalid_argument const& ex)
-	{
-	    return 0;
-	}
-	catch(std::out_of_range const& ex)
-	{
+	double	testing = strtod(str.c_str(), NULL);
+	if (testing == HUGE_VAL || testing == -HUGE_VAL)
 		return 0;
-	}
+	else
+		return 1;
 	return (0);
 }
 
 int	ScalarConverter::_try_int(std::string str)
 {
-	int	i = 0;
+	int	i = 1;
 	int	signals = 0;
-	
+
+	if (str.size() == 1 && str[0] == '0')
+		return 1;
+	if (str[0] == '+' || str[0] == '-')
+		signals++;
 	while (str[i])
 	{
-		if (str[i] == '+' || str[i] == '-')
-			signals++;
-		else if (!std::isdigit(str[i]))
+		if (!std::isdigit(str[i]))
 			return (0);
 		i++;
 	}
 	if (signals > 1)
 		return (0);
-	try
-	{
-		std::stoi(str);
-		return 1;
-	}
-	catch (std::invalid_argument const& ex)
-	{
-	    return 0;
-	}
-	catch(std::out_of_range const& ex)
-	{
+		
+	double	testing = strtod(str.c_str(), NULL);
+	
+	if (testing == HUGE_VAL || testing == -HUGE_VAL)
 		return 0;
-	}
+	if (testing > std::numeric_limits<int>::max() || testing < std::numeric_limits<int>::min())
+		return 0;
+	else
+		return 1;
+
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:37:03 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/12/04 13:38:57 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/12/05 13:01:11 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 Base::~Base()
 {
-	std::cout << "Base was destroyed" << std::endl;
 }
 
 Base*	Base::generate(void)
@@ -68,7 +67,7 @@ void	Base::identify(Base &p)
 	catch (const std::exception &e)
 	{
 
-		std::cout << e.what() << std::endl;
+		//std::cout << e.what() << std::endl;
 	}
 
 	try
@@ -80,7 +79,7 @@ void	Base::identify(Base &p)
 	catch (const std::exception &e)
 	{
 
-		std::cout << e.what() << std::endl;
+		//std::cout << e.what() << std::endl;
 	}
 	
 	try
@@ -92,7 +91,7 @@ void	Base::identify(Base &p)
 	catch (const std::exception &e)
 	{
 
-		std::cout << e.what() << std::endl;
+		//std::cout << e.what() << std::endl;
 	}
 	
 	return ;

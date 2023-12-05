@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:00:18 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/14 18:04:20 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:29:51 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	delete (base);
 
 	base = base->generate();
-	base->identify(base);
+	base->identify(*base);
 
 	delete(base);
 	return (1);
