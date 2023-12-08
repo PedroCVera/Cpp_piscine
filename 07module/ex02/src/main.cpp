@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:17:36 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/12/05 14:56:52 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/12/08 14:14:53 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int main()
 		arr7[i] = 'a' + i;
 		std::cout << arr7[i] << " ";
 	}
+	std::cout << "\nPosition [3] is: " << arr7[3] << std::endl;
 	std::cout << std::endl;
 	
 
