@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:17:39 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/18 14:57:54 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:55:33 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,9 @@ class	Array
 		}
 		
 		unsigned int	size()
-		{ return (_size); }
+		{ 
+			return (_size);
+		}
 		
 		T &operator[](unsigned int index)
 		{

@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:40:07 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/18 14:09:19 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:51:30 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ void customFunction(const T& element)
 {
     std::cout << element << std::endl;
 }
-
 
 #endif
