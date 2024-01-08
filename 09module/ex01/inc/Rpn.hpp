@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   Rpn.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 15:39:21 by pcoimbra          #+#    #+#             */
-/*   Updated: 2024/01/08 12:38:40 by pcoimbra         ###   ########.fr       */
+/*   Created: 2024/01/08 12:11:13 by pcoimbra          #+#    #+#             */
+/*   Updated: 2024/01/08 15:08:44 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOINEXCHANGE_HPP
-# define BITCOINEXCHANGE_HPP
+#ifndef RPN_HPP
+# define RPN_HPP
 
 #include <iostream>
 #include <fstream>
 #include <limits>
 #include <cstdlib>
-#include <ctype.h>
-#include <map>
+#include <stack>
 
-#define BITC_DATABASE "data.csv"
+class RPN
+{
+	private:
+		std::stack<int> _Stack;
+		
+	public:
+		RPN();
+		RPN(const RPN &copy);
+		RPN	&operator=(RPN const &copy);
+		~RPN();
 
-bool	isValidDate(std::string date);
-void	btcExchange(std::ifstream &input, std::ifstream &database_file);
+		int Solve_formula(int n1, int n2, char Oper);
+		int	Solve_loop(char **argv);
+};
 
 #endif

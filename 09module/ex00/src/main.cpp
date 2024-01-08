@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:39:20 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/10/09 15:41:09 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/08 12:16:06 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <BitCoinExchange.hpp>
+#include "../inc/BitcoinExchange.hpp"
 
 int	main(int ac, char *av[]) {
 	if (ac != 2)

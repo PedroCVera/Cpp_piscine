@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:39:19 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/10/09 17:48:18 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/08 12:15:46 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <BitCoinExchange.hpp>
+#include "../inc/BitcoinExchange.hpp"
 
 bool	check_csv(std::string line) 
 {
@@ -61,9 +61,9 @@ bool	isValidDate(std::string date) {
 	// std::cout << "Year: " << year << " Month: " << month << " Day: " << day << std::endl;
 	if (year <= 0 || month <= 0 || day <= 0 || month > 12 || day > 31)
 		return false;
-	if ( ( ano % 4 == 0 && ano % 100 != 0 ) || ano % 400 == 0 )
+	if ( ( year % 4 == 0 && year % 100 != 0 ) || year % 400 == 0 )
 	    isLeapYear = true;
-	if ((month == 4 || month == 6 | month == 9 || month == 11) && day > 30)
+	if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
 		return false;
 	if (month == 2 && isLeapYear && day > 29)
 			return false;
@@ -140,8 +140,8 @@ void	btcExchange(std::ifstream &input_file, std::ifstream &database_file)
 		// std::cout << "inserting: " << buffer.substr(0, 10) << " and " << tmp << std::endl;
 		database.insert(std::make_pair(buffer.substr(0, 10), std::atof(tmp)));
 	}
-	std::getline(input, buffer);
-	while (std::getline(input, buffer))
+	std::getline(input_file, buffer);
+	while (std::getline(input_file, buffer))
 	{
 		format = isRightFormat(buffer);
 		if (!format)

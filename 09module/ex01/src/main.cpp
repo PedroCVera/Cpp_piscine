@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 15:39:21 by pcoimbra          #+#    #+#             */
-/*   Updated: 2024/01/08 12:38:40 by pcoimbra         ###   ########.fr       */
+/*   Created: 2024/01/08 14:02:50 by pcoimbra          #+#    #+#             */
+/*   Updated: 2024/01/08 15:09:38 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOINEXCHANGE_HPP
-# define BITCOINEXCHANGE_HPP
+#include "../inc/Rpn.hpp"
 
-#include <iostream>
-#include <fstream>
-#include <limits>
-#include <cstdlib>
-#include <ctype.h>
-#include <map>
-
-#define BITC_DATABASE "data.csv"
-
-bool	isValidDate(std::string date);
-void	btcExchange(std::ifstream &input, std::ifstream &database_file);
-
-#endif
+int	main(int argc, char **argv)
+{
+	if (argc != 2)
+	{
+		std::cout << "The N of arguments must be 1 which contains the expression" << std::endl;
+		return 1;
+	}
+	RPN	solving;
+	solving.Solve_loop(argv);
+}
