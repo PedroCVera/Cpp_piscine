@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:17:52 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/19 14:49:03 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:04:52 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int	easyfind(T &cont, int needle)
 
 	if (Temp != cont.end())
 		return (1);
-	else
-		return (0);
 	return (0);
 }
 

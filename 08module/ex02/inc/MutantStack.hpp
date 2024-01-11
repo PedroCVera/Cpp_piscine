@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 11:59:55 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/25 12:14:39 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:23:46 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ class	MutantStack : public std::stack<T>
 			};
 
 			typedef typename std::deque<T>::iterator iterator;
+			
 			iterator begin() 
 			{
 				return this->c.begin();

@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:48:29 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/19 16:25:50 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:08:50 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <vector>
+# include <cstdlib>
 
 class	Span
 {

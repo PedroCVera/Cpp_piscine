@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcoimbra <pcoimbra@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:23:31 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/19 14:48:48 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:05:19 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	std::string abc = "abcdefgijklmnopqrstuvwxyz";
 	std::vector<char> checkChar(abc.begin(), abc.end());
 	std::cout << "yes: " << easyfind(checkChar, 'w') << std::endl;
-	std::cout << "no: " << easyfind(vec, 'h') << std::endl;
+	std::cout << "no: " << easyfind(checkChar, 'h') << std::endl;
 
-	std::cout << "no: " << easyfind(vec, '2') << std::endl;
+	std::cout << "no: " << easyfind(checkChar, '2') << std::endl;
 }

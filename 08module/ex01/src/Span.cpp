@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:48:30 by pcoimbra          #+#    #+#             */
-/*   Updated: 2023/09/19 16:27:26 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:10:58 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,10 @@ void	Span::addListNumber(unsigned int n)
 	int	randomValue;
 	srand(time(NULL));
 	unsigned int	amount = n;
-	while (amount >= 0)
+	while (amount > 0)
 	{
 		randomValue = rand();
+		randomValue = randomValue % 50;
 		addNumber(randomValue);
 		amount--;
 	}
