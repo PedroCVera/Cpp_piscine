@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:18:12 by pcoimbra          #+#    #+#             */
-/*   Updated: 2024/01/08 15:29:26 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:12:02 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	RPN::Solve_formula(int n1, int n2, char oper)
 	switch (oper)
 	{
 		case '/':
+			if (n2 == 0)
+				return 0;
 			return (n1 / n2);
 		case '*':
 			return (n1 * n2);
@@ -68,10 +70,8 @@ int	RPN::Solve_loop(char **argv)
 					return 0;
 				}
 				n1 = _Stack.top();	_Stack.pop();
-				n2 = _Stack.top();	_Stack.pop();		
-				std::cout << "n1:" << n1 << " n2:" << n2 << " op:" << argv[1][i] << std::endl;
+				n2 = _Stack.top();	_Stack.pop();
 				_Stack.push(Solve_formula(n1, n2, argv[1][i]));
-				std::cout << "result" << _Stack.top() << std::endl;
 		}
 	}
 	if (_Stack.size() != 1)

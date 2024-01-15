@@ -1,4 +1,4 @@
-NAME		= rpn
+NAME		= PmergeMe
 OBJ_PATH	= obj
 
 SRCS		= $(shell find src/ -name '*.cpp')
