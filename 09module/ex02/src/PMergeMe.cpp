@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:55:19 by pcoimbra          #+#    #+#             */
-/*   Updated: 2024/01/15 17:13:40 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:44:03 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,10 @@ int	PmergeMe::CheckRepeat(void)
 		it++;
 		for (; it != _lis.end(); it++)
 			if (*it == *ite)
+			{
+				std::cout << "Problem was in number: " << *ite << std::endl;
 				return 0;
+			}
 	}
 	return 1;
 }
