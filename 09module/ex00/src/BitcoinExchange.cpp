@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:39:19 by pcoimbra          #+#    #+#             */
-/*   Updated: 2024/01/08 12:15:46 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:42:07 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ int	isRightFormat(std::string line) {
 	{
 		if ((i == 4 || i == 7) && line[i] != '-')
 			return 0;
-		else if ((i == 10 || i == 12) && line[i] != ' ')
-			return 0;
-		else if ((i == 11) && line[i] != '|')
-			return 0;
-		else if (line[i] < '0' && line[i] > '9')
+		// else if ((i == 10 || i == 12) && line[i] != ' ')
+		// 	return 0;
+		// else if ((i == 11) && line[i] != '|')
+		// 	return 0;
+		else if (line[i] < '0' && line[i] > '9' && line[i] != ',' && line[i] != '.')
 			return 0;
 	}
 	test = std::atof(line.substr(13).c_str());
