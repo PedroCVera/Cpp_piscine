@@ -6,7 +6,7 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:55:19 by pcoimbra          #+#    #+#             */
-/*   Updated: 2024/01/16 12:44:03 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/23 15:50:29 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,7 +192,6 @@ int PmergeMe::Parse(int ac, char **av)
 		}
 		_lis.push_back(test);
 		_deq.push_back(test);
-		std::cout << "n:" << test << std::endl;
 	}
 	if (CheckRepeat() == 0)
 	{
@@ -202,9 +201,14 @@ int PmergeMe::Parse(int ac, char **av)
 	std::cout << "Before: ";
 	l_printList();
 	l_Divide();
-	// std::cout << "Before: ";
-	// d_printList();
+	std::cout << "\n" << std::endl;
+	std::cout << "Before: ";
+	d_printList();
 	d_Divide();
+	double l_time = double(l_end - l_start) / CLOCKS_PER_SEC * 1000.0;
+    double d_time = double(d_end - d_start) / CLOCKS_PER_SEC * 1000.0;
+    std::cout << "Time to process a range of " << ac - 1 << " elements with std::list: " << l_time << " ms" << std::endl;
+    std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque: " << d_time << " ms" << std::endl;
 	return 1;
 }
 

@@ -6,11 +6,32 @@
 /*   By: pcoimbra <pcoimbra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:39:19 by pcoimbra          #+#    #+#             */
-/*   Updated: 2024/01/22 11:42:07 by pcoimbra         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:06:48 by pcoimbra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/BitcoinExchange.hpp"
+
+bool	isValidDate(std::string date) 
+{
+	int year = std::atoi(date.c_str());
+	std::string buffer = date.substr(date.find_first_not_of("0123456789") + 1);
+	int month = std::atoi(buffer.c_str());
+	buffer =  date.substr(date.find_first_not_of("0123456789", date.find_first_not_of("0123456789") + 1) + 1);
+	int day = std::atoi(buffer.c_str());
+
+	// std::cout << "Year: " << year << " Month: " << month << " Day: " << day << std::endl;
+	if (year <= 0 || month <= 0 || day <= 0 || month > 12 || day > 31)
+		return false;
+	bool	isLeapYear = (year % 10 && !(year % 4)) ? true : false;
+	if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+		return false;
+	if (month == 2 && isLeapYear && day > 29)
+			return false;
+	if (month == 2 && !isLeapYear && day > 28)
+			return false;
+	return (true);
+}
 
 bool	check_csv(std::string line) 
 {
@@ -26,15 +47,15 @@ bool	check_csv(std::string line)
 	{
 		if ((i == 4 || i == 7) && line[i] != '-')
 			return false;
-		else if ((i == 10) && line[i] != ',')
+		else if ((i == 11) && line[i] != '|')
 			return false;
 		else if (line[i] < '0' && line[i] > '9')
 			return false;
 	}
-	test = std::atof(line.substr(11).c_str());
+	test = std::atof(line.substr(12).c_str());
 	if (test > std::numeric_limits<float>::max() || test < 0)
 		return false;
-	for (i = 11; line[i] && ((line[i] >= '0' && line[i] <= '9') || line[i] == '.'); i++)
+	for (i = 13; line[i] && ((line[i] >= '0' && line[i] <= '9') || line[i] == '.'); i++)
 	{
 		if (line[i] == '.')
 		{
@@ -50,28 +71,6 @@ bool	check_csv(std::string line)
 	return true;
 }
 
-bool	isValidDate(std::string date) {
-	int year = std::atoi(date.c_str());
-	std::string buffer = date.substr(date.find_first_not_of("0123456789") + 1);
-	int month = std::atoi(buffer.c_str());
-	buffer =  date.substr(date.find_first_not_of("0123456789", date.find_first_not_of("0123456789") + 1) + 1);
-	int day = std::atoi(buffer.c_str());
-	bool isLeapYear = false;
-
-	// std::cout << "Year: " << year << " Month: " << month << " Day: " << day << std::endl;
-	if (year <= 0 || month <= 0 || day <= 0 || month > 12 || day > 31)
-		return false;
-	if ( ( year % 4 == 0 && year % 100 != 0 ) || year % 400 == 0 )
-	    isLeapYear = true;
-	if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
-		return false;
-	if (month == 2 && isLeapYear && day > 29)
-			return false;
-	if (month == 2 && !isLeapYear && day > 28)
-			return false;
-	return (true);
-}
-
 int	isRightFormat(std::string line) {
 	bool	dot = false;
 	bool	number = false;
@@ -84,11 +83,11 @@ int	isRightFormat(std::string line) {
 	{
 		if ((i == 4 || i == 7) && line[i] != '-')
 			return 0;
-		// else if ((i == 10 || i == 12) && line[i] != ' ')
-		// 	return 0;
-		// else if ((i == 11) && line[i] != '|')
-		// 	return 0;
-		else if (line[i] < '0' && line[i] > '9' && line[i] != ',' && line[i] != '.')
+		else if ((i == 10 || i == 12) && line[i] != ' ')
+			return 0;
+		else if ((i == 11) && line[i] != '|')
+			return 0;
+		else if (line[i] < '0' && line[i] > '9')
 			return 0;
 	}
 	test = std::atof(line.substr(13).c_str());
@@ -135,7 +134,7 @@ void	btcExchange(std::ifstream &input_file, std::ifstream &database_file)
 			std::cerr << "Error on csv file, line: " << buffer << std::endl;
 			return ;
 		}
-		tmp_buff = buffer.substr(buffer.find(",") + 1);
+		tmp_buff = buffer.substr(buffer.find("|") + 1);
 		tmp = tmp_buff.c_str();
 		// std::cout << "inserting: " << buffer.substr(0, 10) << " and " << tmp << std::endl;
 		database.insert(std::make_pair(buffer.substr(0, 10), std::atof(tmp)));
@@ -161,6 +160,7 @@ void	btcExchange(std::ifstream &input_file, std::ifstream &database_file)
 				iter--;
 				std::cout << buffer.substr(0, 11) << "=>" << buffer.substr(12) \
 				<< " = " << (iter)->second * std::atof(buffer.substr(13).c_str()) << std::endl;
+				// std::cout << std::atof(buffer.substr(13).c_str()) << " value on atof and iter -> " << (iter)->second << std::endl;
 				//<< " Using - Date = " << iter->first << " Value = " << iter->second << std::endl;
 			}
 			else
